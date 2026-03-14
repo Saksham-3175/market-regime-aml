@@ -1,0 +1,23 @@
+# Environments
+venv/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Data (raw data shouldn't be committed)
+data/*.csv
+data/*.parquet
+data/*.xlsx
+
+# Outputs
+outputs/*.png
+outputs/*.jpg
+outputs/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
