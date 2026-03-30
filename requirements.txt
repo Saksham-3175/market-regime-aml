@@ -1,5 +1,6 @@
 # Core data
 yfinance==0.2.54
+curl-cffi==0.14.0     # Chrome TLS impersonation — required for yfinance session
 pandas==2.3.3
 numpy==2.4.3
 pyarrow==23.0.1       # parquet I/O
@@ -25,6 +26,9 @@ joblib==1.5.3
 
 # Config
 PyYAML==6.0.3
+
+# Analysis
+statsmodels==0.14.6
 
 # Testing
 pytest==9.0.2

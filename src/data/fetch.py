@@ -6,8 +6,13 @@ from pathlib import Path
 
 import pandas as pd
 import yfinance as yf
+from curl_cffi import requests as curl_requests
 
 logger = logging.getLogger(__name__)
+
+# Yahoo Finance blocks plain Python/requests TLS fingerprints; curl_cffi
+# impersonates Chrome so the connection succeeds.
+_SESSION = curl_requests.Session(impersonate="chrome110")
 
 _RAW_DIR = Path(__file__).resolve().parents[3] / "data" / "raw"
 
@@ -58,7 +63,11 @@ def fetch_ohlcv(
         return pd.read_parquet(cache)
 
     logger.info(f"Downloading {ticker} [{start} → {end}]")
-    raw = yf.download(ticker, start=start, end=end, auto_adjust=True, progress=False)
+    raw = yf.download(
+        ticker, start=start, end=end,
+        auto_adjust=True, progress=False,
+        session=_SESSION,
+    )
 
     if raw.empty:
         raise ValueError(f"yfinance returned no data for {ticker} [{start}, {end}]")
