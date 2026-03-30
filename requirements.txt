@@ -1,8 +1,30 @@
-yfinance
-pandas
-numpy
-hmmlearn
-scikit-learn
-matplotlib
-seaborn
-jupyter
+# Core data
+yfinance==0.2.54
+pandas==2.3.3
+numpy==2.4.3
+pyarrow==23.0.1       # parquet I/O
+
+# ML
+hmmlearn==0.3.3
+scikit-learn==1.8.0
+scipy==1.17.1
+
+# Visualisation
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.6.0
+
+# API + dashboard
+fastapi==0.135.1
+uvicorn==0.42.0
+streamlit==1.55.0
+
+# Experiment tracking + serialisation
+mlflow==3.10.1
+joblib==1.5.3
+
+# Config
+PyYAML==6.0.3
+
+# Testing
+pytest==9.0.2

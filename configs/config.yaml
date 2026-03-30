@@ -1,0 +1,15 @@
+data:
+  ticker: "^GSPC"
+  start_date: "2000-01-01"
+  end_date: null  # null → defaults to today at runtime
+
+features:
+  vol_window: 21      # realized volatility rolling window (trading days, ~1 month)
+  volume_window: 21   # volume ratio rolling window (trading days, ~1 month)
+
+model:
+  n_states_range: [2, 3, 4, 5]   # BIC sweep over these state counts
+  covariance_type: "full"         # full covariance captures cross-feature correlations
+  n_iter: 100                     # max EM iterations per fit
+  n_seeds: 10                     # random restarts to escape local optima
+  random_state: 42                # base seed; each restart uses random_state + seed_idx
