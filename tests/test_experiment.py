@@ -135,10 +135,7 @@ class TestLogConfigParams:
         with mlflow.start_run() as run:
             _log_config_params(config)
         client = mlflow.tracking.MlflowClient()
-        params = {
-            p.key: p.value
-            for p in client.get_run(run.info.run_id).data.params
-        }
+        params = client.get_run(run.info.run_id).data.params
         assert params["ticker"] == config["data"]["ticker"]
 
     def test_vol_window_param_logged(self, config):
@@ -147,10 +144,7 @@ class TestLogConfigParams:
         with mlflow.start_run() as run:
             _log_config_params(config)
         client = mlflow.tracking.MlflowClient()
-        params = {
-            p.key: p.value
-            for p in client.get_run(run.info.run_id).data.params
-        }
+        params = client.get_run(run.info.run_id).data.params
         assert params["vol_window"] == str(config["features"]["vol_window"])
 
 

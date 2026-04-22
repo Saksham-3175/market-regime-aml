@@ -1,9 +1,6 @@
 """Pydantic request and response schemas for the Market Regime HMM API."""
 
-from __future__ import annotations
-
-from datetime import date
-from typing import Any
+from datetime import date as Date
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -16,7 +13,7 @@ from pydantic import BaseModel, Field, field_validator
 class OHLCVRow(BaseModel):
     """A single day of OHLCV data supplied by the caller."""
 
-    date: date = Field(..., description="Trading date (YYYY-MM-DD).")
+    date: Date = Field(..., description="Trading date (YYYY-MM-DD).")
     open: float = Field(..., gt=0, description="Opening price.")
     high: float = Field(..., gt=0, description="Daily high price.")
     low: float = Field(..., gt=0, description="Daily low price.")
@@ -53,7 +50,7 @@ class RegimesRequest(BaseModel):
 class RegimeDay(BaseModel):
     """Regime classification for a single trading day."""
 
-    date: date
+    date: Date
     regime: str = Field(..., description="Bull | Bear | Sideways")
     state_id: int = Field(..., description="Raw HMM state index (0-based).")
     prob_bull: float = Field(..., ge=0.0, le=1.0)
