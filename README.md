@@ -9,14 +9,13 @@ Unsupervised probabilistic classification of S&P 500 market states using a Gauss
 
 ## Results
 
-![Regime Overlay](assets/image_ea5209.png)
-*S&P 500 price history segmented by inferred hidden states. Green = Bull, Red = Bear, Amber = Sideways.*
+> **Plots generated after training.** Run `notebooks/02_model_selection.ipynb` to produce the charts below and save them to `assets/`.
 
-![Observation Distributions](assets/image_ea560b.png)
-*Feature distributions across the three learned regimes.*
-
-![Model Evaluation](assets/image_ea5663.png)
-*BIC sweep confirming k=3 as the optimal number of hidden states.*
+| Chart | Description |
+|-------|-------------|
+| Regime Overlay | S&P 500 price history with Bull / Bear / Sideways background bands and a per-day regime scatter strip |
+| Feature Distributions | KDE plots of `log_return`, `realized_vol`, and `volume_ratio` split by regime — shows clear separation between states |
+| BIC Sweep | Information criterion vs. k ∈ {2,3,4,5} — elbow at k=3 confirms three hidden states |
 
 ---
 
