@@ -13,3 +13,14 @@ model:
   n_iter: 100                     # max EM iterations per fit
   n_seeds: 10                     # random restarts to escape local optima
   random_state: 42                # base seed; each restart uses random_state + seed_idx
+
+mlflow:
+  tracking_uri: "mlflow"          # local directory for MLflow tracking store
+  experiment_name: "market-regime-hmm"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  model_path: "models/hmm_3state.pkl"   # path to saved model artifact
+  title: "Market Regime HMM API"
+  version: "1.0.0"

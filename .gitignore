@@ -12,6 +12,13 @@ __pycache__/
 data/*.csv
 data/*.parquet
 data/*.xlsx
+data/raw/
+
+# Model artifacts
+models/
+
+# MLflow tracking store
+mlflow/
 
 # Outputs
 outputs/*.png
@@ -21,3 +28,4 @@ outputs/*.pdf
 # OS
 .DS_Store
 Thumbs.db
+.aider*

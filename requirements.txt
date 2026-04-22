@@ -19,6 +19,7 @@ plotly==6.6.0
 fastapi==0.135.1
 uvicorn==0.42.0
 streamlit==1.55.0
+httpx==0.28.1         # required by FastAPI TestClient
 
 # Experiment tracking + serialisation
 mlflow==3.10.1
